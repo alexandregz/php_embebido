@@ -1,0 +1,15 @@
+[Unit]
+Description=Servidor PHP embebido
+After=network.target
+
+[Service]
+ExecStart=/home/alex/xxxx/server.sh
+Restart=always
+User=alex
+Group=alex
+WorkingDirectory=/home/alex/xxxxx
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
