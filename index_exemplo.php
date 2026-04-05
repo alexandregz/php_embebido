@@ -4,6 +4,7 @@ session_start();
 // ----------------- CONFIG (hardcodeado) -----------------
 define('USERNAME', 'xxxxxx');       // usuario hardcodeado
 define('PASSWORD', 'xxxxxx'); // contrasinal hardcodeado (módao se queres)
+define('SKIP_AUTH', true);  // Se pos isto a true, non pedirá contrasinal
 // --------------------------------------------------------
 
 // Logout
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user'], $_POST['pass'
 }
 
 // Se non está autenticado, amosa o formulario e remata
-if (empty($_SESSION['authenticated'])):
+if (!SKIP_AUTH && empty($_SESSION['authenticated'])):
 ?>
 <!DOCTYPE html>
 <html lang="gl">
@@ -132,6 +133,10 @@ foreach ($liñas as $liña) {
 </style>
 </head>
 <body>
+
+<?php if (SKIP_AUTH): ?>
+  <div class="status">⚠️ Modo de acceso libre activado (SKIP_AUTH).</div>
+<?php endif; ?>
 
 <?php
 // (Opcional) ordenar por data ascendente segundo formato d/m/Y
