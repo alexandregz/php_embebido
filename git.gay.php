@@ -112,8 +112,6 @@ ob_implicit_flush(1);
           ?></pre>
   </details>
 
-  <div class="status">⚠️ Modo de acceso libre activado (SKIP_AUTH).</div>
-
   <?php
   // Comprobar se o arquivo existe despois do pull
   if (!file_exists($jsonPath)) {
